@@ -13,7 +13,7 @@ echo -e "\e[36m
        ▀                        ▀████▀▀                                 ▀████▀▀
 \e[0m\n"
 
-DOCKER_IMG_NAME="shufflewzc/qinglong"
+DOCKER_IMG_NAME="whyour/qinglong"
 JD_PATH=""
 SHELL_FOLDER=$(pwd)
 CONTAINER_NAME=""
@@ -361,7 +361,7 @@ if [ "$access" != "2" ]; then
             docker exec -it $CONTAINER_NAME bash -c "sed -i \"s/ALLOW_NUM=40/ALLOW_NUM=100/\" /ql/ninja/backend/.env && cd /ql/ninja/backend && pm2 start"
         fi
         log "8.开始青龙内部配置"
-        docker exec -it $CONTAINER_NAME bash -c "$(curl -fsSL https://ghproxy.com/https://github.com/okyyds/onekey/blob/main/Scripts/sh/1customCDN.sh)"
+        docker exec -it $CONTAINER_NAME bash -c "$(curl -fsSL https://ghproxy.com/https://github.com/chrimersong/onekey/master/Scripts/sh/1customCDN.sh)"
     else
         warn "8.未检测到 token，取消内部配置"
     fi
